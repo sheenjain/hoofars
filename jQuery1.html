@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>collapsable nav bar</title>
+	<script src="jquery-3.2.1.js"></script>
+	<script src="https://use.fontawesome.com/1d5a5c90ef.js"></script>
+	<link rel="stylesheet" type="text/css" href="navbar.css">
+</head>
+<body>
+<div id='container'>
+<nav>
+<div class="dropdown">
+<button class="dropbtn"><i class="fa fa-bars" aria-hidden="true"></i></button>
+	<ul id="myDropdown" class="dropdown-content">
+	<li><button class="close"><i class="fa fa-times" aria-hidden="true"></i></button></li>
+	<li>Jobs</li>
+	<li>Company Reviews</li>
+	<li>Salaries</li>
+	<li>Interviews</li>
+	<li>Sign in</li>
+	<li>For Employers</li>
+	<li>Free Job Postings</li>
+	<li>Write a Review</li>
+</ul>
+</div>
+<ul class="bigscreen" >
+	<li>Log in</li>
+	<li>Sign in</li>
+	<li>WriteReview</li>
+	<li>For Employers</li>
+	<li>Free Job Postings</li>
+</ul>
+
+
+</nav>	
+</div>
+<script type="text/javascript">
+	$(document).ready(function()
+	{
+	       
+	    $(window).resize(function()
+	    {
+			if ($(window).width() <= 800)
+			{	
+				 $(".bigscreen").hide();
+				  $(".dropdown").show();
+				// do something here
+			}
+			else
+			{
+				$(".bigscreen").show();
+				  $(".dropdown").hide();
+			}	
+		});
+		$(".dropbtn").click(function()
+		{	
+				$(".dropbtn").hide();
+				$(".dropdown-content").toggle(1500);
+		});
+		$(".close").click(function()
+		{
+			$(".dropbtn").show();
+			$(".dropdown-content").hide();
+		});
+		if($(".dropdown-content".show()))
+		{
+			$("#container").css("border","2px solid red");
+			$(document).click(function()
+			{
+				$(".dropdown-content").hide();
+			});
+		}
+
+	});
+
+</script>
+</body>
+</html>
